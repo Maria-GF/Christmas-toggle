@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@700&family=Raleway:wght@400;700;900&display=swap");
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.switch {
+  width: 5em;
+  height: 2.8em;
+  position: relative;
+  display: block;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  /* shorthand para poner todos los lados a 0 */
+  inset: 0;
+  cursor: pointer;
+  background: #f9cbcb;
+  border-radius: 30px;
+  border: 3px solid #daa520;
+  transition: 0.4s;
+  transform: scale(2.2);
+}
+.slider:before,
+.slider:after {
+  content: "";
+  height: 1.8em;
+  width: 1.4em;
+  border-radius: 10px;
+  display: block;
+  position: absolute;
+  left: 8px;
+  top: 3px;
+  bottom: 0.3;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: 0.4s;
+}
+.slider:before {
+  background-image: url(img/ball.png);
+  opacity: 1;
+}
+.slider:after {
+  background-image: url(img/tree.png);
+  opacity: 0;
+}
+.switch input:checked + .slider:before {
+  transform: translateX(2em);
+  opacity: 0;
+}
+.switch input:checked + .slider:after {
+  transform: translateX(2em);
+  opacity: 1;
+}
+.switch input:checked + .slider {
+  background: #094d26;
+  border-color: #a6dbbf;
+}
+.switch .on,
+.switch .off {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8em;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  transition: opacity 0.3s ease-in-out;
+}
+.switch .on {
+  left: 1em;
+  color: #a6dbbf;
+  opacity: 0;
+}
+.switch .off {
+  right: 1em;
+  color: #daa520;
+}
+.switch input:checked + .slider .on {
+  opacity: 1;
+}
+.switch input:checked + .slider .off {
+  opacity: 0;
+}
+.overlay {
+  background-image: url(img/red_bg.jpg);
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  transition: 0.4s;
+}
+.switch input:checked ~ .overlay {
+  background-image: url(img/green_bg\ .jpg);
+  background-size: cover;
+  background-position: center;
+}
